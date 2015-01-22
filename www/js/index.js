@@ -27,7 +27,7 @@ function getLocation() {
         var locOptions = {
             maximumAge : 0,
             timeout : 5000,
-            enableHighAccuracy : true
+            enableHighAccuracy : false
         };
         //get the current location
         navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
