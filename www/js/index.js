@@ -25,6 +25,7 @@ function getLocation() {
     alert("getLocation");
     if(pgr == true) {
         var locOptions = {
+            maximumAge : 0,
             timeout : 5000,
             enableHighAccuracy : true
         };
