@@ -38,6 +38,74 @@ function getLocation() {
         alert("Please wait,\nPhoneGap is not ready.");
     }
 }
+function getLocation1() {
+    alert("getLocation1");
+    if(pgr == true) {
+        var locOptions = {
+            maximumAge : 0,
+            timeout : 5000,
+            enableHighAccuracy : true
+        };
+        //get the current location
+        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        //Clear the current location while we wait for a reading
+        lc.innerHTML = "Reading location...";
+
+    } else {
+        alert("Please wait,\nPhoneGap is not ready.");
+    }
+}
+function getLocation2() {
+    alert("getLocation2");
+    if(pgr == true) {
+        var locOptions = {
+            maximumAge : Infinity,
+            timeout : 5000,
+            enableHighAccuracy : false
+        };
+        //get the current location
+        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        //Clear the current location while we wait for a reading
+        lc.innerHTML = "Reading location...";
+
+    } else {
+        alert("Please wait,\nPhoneGap is not ready.");
+    }
+}
+function getLocation3() {
+    alert("getLocation3");
+    if(pgr == true) {
+        var locOptions = {
+            maximumAge : Infinity,
+            timeout : 5000,
+            enableHighAccuracy : true
+        };
+        //get the current location
+        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        //Clear the current location while we wait for a reading
+        lc.innerHTML = "Reading location...";
+
+    } else {
+        alert("Please wait,\nPhoneGap is not ready.");
+    }
+}
+function getLocation4() {
+    alert("getwatchPosition4");
+    if(pgr == true) {
+        var locOptions = {
+            maximumAge : Infinity,
+            timeout : 5000,
+            enableHighAccuracy : false
+        };
+        //get the current location
+        navigator.geolocation.watchPosition(onLocationSuccess, onLocationError);
+        //Clear the current location while we wait for a reading
+        lc.innerHTML = "Reading location...";
+
+    } else {
+        alert("Please wait,\nPhoneGap is not ready.");
+    }
+}
 
 function onLocationSuccess(loc) {
     alert("onLocationSuccess");
