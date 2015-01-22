@@ -47,7 +47,7 @@ function getLocation1() {
             enableHighAccuracy : true
         };
         //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        navigator.geolocation.getCurrentPosition(onLocationSuccess1, onLocationError1, locOptions);
         //Clear the current location while we wait for a reading
         lc.innerHTML = "Reading location...";
 
@@ -64,7 +64,7 @@ function getLocation2() {
             enableHighAccuracy : false
         };
         //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        navigator.geolocation.getCurrentPosition(onLocationSuccess2, onLocationError2, locOptions);
         //Clear the current location while we wait for a reading
         lc.innerHTML = "Reading location...";
 
@@ -81,7 +81,7 @@ function getLocation3() {
             enableHighAccuracy : true
         };
         //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
+        navigator.geolocation.getCurrentPosition(onLocationSuccess3, onLocationError3, locOptions);
         //Clear the current location while we wait for a reading
         lc.innerHTML = "Reading location...";
 
@@ -98,7 +98,7 @@ function getLocation4() {
             enableHighAccuracy : false
         };
         //get the current location
-        navigator.geolocation.watchPosition(onLocationSuccess, onLocationError);
+        navigator.geolocation.watchPosition(onLocationSuccess4, onLocationError4);
         //Clear the current location while we wait for a reading
         lc.innerHTML = "Reading location...";
 
@@ -116,8 +116,56 @@ function onLocationSuccess(loc) {
     // location retrieved from the API
     lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
 }
+function onLocationSuccess1(loc) {
+    alert("onLocationSuccess1");
+    //We received something from the API, so first get the
+    // timestamp in a date object so we can work with it
+    var d = new Date(loc.timestamp);
+    //Then replace the page's content with the current
+    // location retrieved from the API
+    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+}
+function onLocationSuccess2(loc) {
+    alert("onLocationSuccess2");
+    //We received something from the API, so first get the
+    // timestamp in a date object so we can work with it
+    var d = new Date(loc.timestamp);
+    //Then replace the page's content with the current
+    // location retrieved from the API
+    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+}
+function onLocationSuccess3(loc) {
+    alert("onLocationSuccess3");
+    //We received something from the API, so first get the
+    // timestamp in a date object so we can work with it
+    var d = new Date(loc.timestamp);
+    //Then replace the page's content with the current
+    // location retrieved from the API
+    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+}
+function onLocationSuccess4(loc) {
+    alert("onLocationSuccess4");
+    //We received something from the API, so first get the
+    // timestamp in a date object so we can work with it
+    var d = new Date(loc.timestamp);
+    //Then replace the page's content with the current
+    // location retrieved from the API
+    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+}
 
 function onLocationError(e) {
     alert("Geolocation error: #" + e.code + "\n" + e.message);
 }
 
+function onLocationError1(e) {
+    alert("Geolocation error: #" + e.code + "\n" + e.message);
+}
+function onLocationError2(e) {
+    alert("Geolocation error: #" + e.code + "\n" + e.message);
+}
+function onLocationError3(e) {
+    alert("Geolocation error: #" + e.code + "\n" + e.message);
+}
+function onLocationError4(e) {
+    alert("Geolocation error: #" + e.code + "\n" + e.message);
+}
