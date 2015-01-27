@@ -40,10 +40,21 @@
     <input type="button" value="Refresh Location" onclick="getLocation3();">
     <input type="button" value="Refresh Location watch" onclick="getLocation4();">
     <hr />
-    <p id="locationInfo">
+    <p id="locationInfo" style="font-size:14px">
         Nothing to see here (yet), click the button.
     </p>
+    <ul style="font-size:14px">
+        <li >Location: <span id="location"></span></li>
+        <ul>
+            <li >Location setting: <span id="locationSetting"></span></li>
+            <li >Location authorization: <span id="locationAuthorization"></span></li>
+        </ul>
+        <li>WiFi Connection: <span id="wifi"></span></li>
+        <li>Camera: <span id="camera"></span></li>
+    </ul>
+    <button style="font-size:14px" type="button" onclick="test();" >Refresh</button>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="diagnostic.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
