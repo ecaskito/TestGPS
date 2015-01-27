@@ -183,12 +183,12 @@ var callFailure = function(data) {
     alert("fail to call plugin:"+data.message);
 };
 
-var Diagnostic = function() {
-};
 
 function test(){
     try{
-        cordova.exec(callSuccess, callFailure, "Diagnostic", "isGpsEnabled", []);
+       Diagnostic = cordova.require('cordova/plugin/Diagnostic');
+        Diagnostic.isLocationEnabled(callSuccess,callFailure)
+        //cordova.exec(callSuccess, callFailure, "Diagnostic", "isGpsEnabled", []);
     }
     catch (ex){
         alert("test error"+ex.message);
