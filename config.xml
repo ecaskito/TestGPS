@@ -42,7 +42,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <gap:plugin  name="cordova.plugins.diagnostic" />
+    <plugin  name="com.collectme.cordova.diagnostic.Diagnostic" />
 
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
@@ -55,6 +55,11 @@
             <string>Allow GPS</string>
         </array>
     </gap:config-file>
+
+    <feature name="Diagnostic" >
+        <param name="ios-package" value="Diagnostic" />
+        <param name="android-package" value="com.collectme.cordova.diagnostic.Diagnostic"/>
+    </feature>
 
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
