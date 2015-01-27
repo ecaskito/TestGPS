@@ -170,7 +170,7 @@ function onLocationError4(e) {
     alert("Geolocation error: #" + e.code + "\n" + e.message);
 }
 
-var callSuccess = function(data) {
+function callSuccess(data) {
     var swicthSuccess;
     if (data.success == true) {
         alert("GPS is enabled");
@@ -179,7 +179,7 @@ var callSuccess = function(data) {
     }
 };
 
-var callFailure = function(data) {
+function callFailure(data) {
     alert("fail to call plugin:"+data.message);
 };
 
@@ -187,11 +187,30 @@ var callFailure = function(data) {
 function test(){
     try{
        Diagnostic = cordova.require('cordova/plugin/Diagnostic');
-        Diagnostic.isLocationEnabled(callSuccess,callFailure)
-        //cordova.exec(callSuccess, callFailure, "Diagnostic", "isGpsEnabled", []);
     }
     catch (ex){
-        alert("test error"+ex.message);
+        alert("test error 1: "+ex.message);
+    }
+    try{
+        Diagnostic.prototype.isLocationEnabled(callSuccess,callFailure)
+    }
+    catch (ex){
+        alert("test error 2: "+ex.message);
+    }
+    try{
+        Diagnostic.isLocationEnabled(callSuccess,callFailure)
+    }
+    catch (ex){
+        alert("test error 3: "+ex.message);
+    }
+    try{
+        cordova.exec(callSuccess,
+            callFailure,
+            'Diagnostic',
+            'isLocationEnabled',
+            []);    }
+    catch (ex){
+        alert("test error 4: "+ex.message);
     }
 }
     function test1() {
