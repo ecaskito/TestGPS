@@ -42,7 +42,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <gap:plugin  name="Diagnostic"  value="cordova.plugins.diagnostic" />
+    <gap:plugin  name="cordova.plugins.diagnostic" />
 
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
