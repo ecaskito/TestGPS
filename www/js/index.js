@@ -180,9 +180,11 @@ var callSuccess = function(data) {
 };
 
 var callFailure = function(data) {
-    alert("fail to call plugin");
+    alert("fail to call plugin:"+data.message);
 };
 
+var Diagnostic = function() {
+};
 
 function test(){
     try{
