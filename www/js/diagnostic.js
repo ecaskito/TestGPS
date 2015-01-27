@@ -108,10 +108,10 @@ cordova.define('cordova/plugin/Diagnostic', function(require, exports, module) {
 	var Diagnostic = new Diagnostic();
 	module.exports = Diagnostic;
 
-// cordova.addConstructor(function() {
-// 	if(!window.plugins)
-// 		window.plugins = {};
-// 	window.plugins.diagnostic = new Diagnostic();
-// });
+cordova.addConstructor(function() {
+	if(!window.plugins)
+		window.plugins = {};
+	window.plugins.diagnostic = new Diagnostic();
+});
 
 });
