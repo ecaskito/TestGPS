@@ -93,12 +93,12 @@ function getLocation4() {
     alert("getwatchPosition4");
     if(pgr == true) {
         var locOptions = {
-            maximumAge : Infinity,
-            timeout : 5000,
-            enableHighAccuracy : false
+            //maximumAge : Infinity,
+            //timeout : 5000,
+            enableHighAccuracy : true
         };
         //get the current location
-        navigator.geolocation.watchPosition(onLocationSuccess4, onLocationError4);
+        navigator.geolocation.watchPosition(onLocationSuccess4, onLocationError4,locOptions);
         //Clear the current location while we wait for a reading
         lc.innerHTML = "Reading location...";
 
@@ -154,20 +154,20 @@ function onLocationSuccess4(loc) {
 }
 
 function onLocationError(e) {
-    alert("Geolocation error: #" + e.code + "\n" + e.message);
+    alert("onLocationError error: #" + e.code + "\n" + e.message);
 }
 
 function onLocationError1(e) {
-    alert("Geolocation error: #" + e.code + "\n" + e.message);
+    alert("onLocationError1 error: #" + e.code + "\n" + e.message);
 }
 function onLocationError2(e) {
-    alert("Geolocation error: #" + e.code + "\n" + e.message);
+    alert("onLocationError2 error: #" + e.code + "\n" + e.message);
 }
 function onLocationError3(e) {
-    alert("Geolocation error: #" + e.code + "\n" + e.message);
+    alert("onLocationError3 error: #" + e.code + "\n" + e.message);
 }
 function onLocationError4(e) {
-    alert("Geolocation error: #" + e.code + "\n" + e.message);
+    alert("onLocationError4 error: #" + e.code + "\n" + e.message);
 }
 
 function callSuccess(data) {
