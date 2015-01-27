@@ -170,9 +170,29 @@ function onLocationError4(e) {
     alert("Geolocation error: #" + e.code + "\n" + e.message);
 }
 
+var callSuccess = function(data) {
+    var swicthSuccess;
+    if (data.success == true) {
+        alert("GPS is enabled");
+    } else {
+        alert("GPS is not enabled");
+    }
+};
+
+var callFailure = function(data) {
+    alert("fail to call plugin");
+};
 
 
-function test() {
+function test(){
+    try{
+        cordova.exec(callSuccess, callFailure, "Diagnostic", "isGpsEnabled", []);
+    }
+    catch (ex){
+        alert("test error"+ex.message);
+    }
+}
+    function test1() {
     try {
 
         alert("test")
@@ -278,7 +298,7 @@ function test() {
         }
     }
     catch(ex) {
-        alert("test error: #" + e.code + "\n" + e.message);
+        alert("test error: #" +ex.message);
     }
 
 }
