@@ -9,6 +9,8 @@ window.addEventListener('load', function () {
 
 function deviceReady() {
     try {
+        localStorage.clear();
+
         //Get a handle we'll use to adjust the accelerometer
         //content
         lc = document.getElementById("locationInfo");
