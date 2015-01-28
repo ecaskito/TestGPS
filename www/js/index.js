@@ -325,3 +325,34 @@ function test(){
     }
 
 }
+
+function ObtenerTelefono()
+{
+    try{
+        var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
+        telephoneNumber.get(ObtenerTelefonoOK, function() {
+            console.log("error");
+        });
+    }
+    catch(ex) {
+        alert("ObtenerTelefono error: " +ex.message);
+    }
+}
+function ObtenerTelefonoOK(result)
+{
+    try{
+        alert(result);
+    }
+    catch(ex) {
+        alert("ObtenerTelefonoOK error: " +ex.message);
+    }
+}
+function ObtenerTelefonoError(error)
+{
+    try{
+        alert(error);
+    }
+    catch(ex) {
+        alert("ObtenerTelefonoError error: " +ex.message);
+    }
+}
