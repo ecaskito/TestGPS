@@ -330,9 +330,7 @@ function ObtenerTelefono()
 {
     try{
         var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
-        telephoneNumber.get(ObtenerTelefonoOK, function() {
-            console.log("error");
-        });
+        telephoneNumber.get(ObtenerTelefonoOK,ObtenerTelefonoError );
     }
     catch(ex) {
         alert("ObtenerTelefono error: " +ex.message);
@@ -341,7 +339,7 @@ function ObtenerTelefono()
 function ObtenerTelefonoOK(result)
 {
     try{
-        alert(result);
+        alert("Teléfono: "+ result);
     }
     catch(ex) {
         alert("ObtenerTelefonoOK error: " +ex.message);
@@ -350,7 +348,7 @@ function ObtenerTelefonoOK(result)
 function ObtenerTelefonoError(error)
 {
     try{
-        alert(error);
+        alert("Error: "+error);
     }
     catch(ex) {
         alert("ObtenerTelefonoError error: " +ex.message);
