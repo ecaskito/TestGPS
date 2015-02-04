@@ -76,8 +76,7 @@ function onLocationSuccess(loc) {
 }
 
 function onLocationError(e) {
-    if (e.code==1)
-    {alert("onLocationError error: #" + e.code + "\n" + e.message);}
+ alert("onLocationError error: #" + e.code + "\n" + e.message);
 }
 
 function callSuccess(data) {

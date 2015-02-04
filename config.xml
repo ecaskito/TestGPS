@@ -12,7 +12,7 @@
     <preference name="phonegap-version" value="3.5.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
@@ -43,7 +43,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <!--<plugin  name="com.collectme.cordova.diagnostic.Diagnostic"  />-->
-    <gap:plugin name="com.simonmacdonald.telephonenumber" version="1.0.0" />
+    <plugin name="TelephoneNumber" value="com.simonmacdonald.cordova.plugins.TelephoneNumber"/>
 
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
@@ -61,6 +61,11 @@
         <param name="ios-package" value="Diagnostic" />
         <param name="android-package" value="com.collectme.cordova.diagnostic.Diagnostic"/>
     </feature>
+
+    <feature name="TelephoneNumber" >
+        <param name="android-package" value="com.simonmacdonald.cordova.plugins.TelephoneNumber"/>
+    </feature>
+
 
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
