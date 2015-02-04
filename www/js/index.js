@@ -48,7 +48,7 @@ function onLocationSuccess(loc) {
 
     var posAlta = new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude);
     var mapOptions = {
-        zoom: 20,
+        zoom: 18,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
         accuracy: 5,
