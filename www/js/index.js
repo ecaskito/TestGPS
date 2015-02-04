@@ -1,7 +1,4 @@
-//Location content
-var lc;
-//PhoneGap Ready variable
-var pgr = false;
+var wathID =null;
 
 window.addEventListener('load', function () {
         document.addEventListener("deviceReady", deviceReady, false);
@@ -9,14 +6,6 @@ window.addEventListener('load', function () {
 
 function deviceReady() {
     try {
-        localStorage.clear();
-
-        //Get a handle we'll use to adjust the accelerometer
-        //content
-        lc = document.getElementById("locationInfo");
-        //Set the variable that lets other parts of the program
-        //know that PhoneGap is initialized
-        pgr = true;
     }
     catch (ex) {
         alert("deviceReady error: "+ex.message);
@@ -24,152 +13,71 @@ function deviceReady() {
 }
 
 function getLocation() {
-    alert("getLocation");
-    if(pgr == true) {
-        var locOptions = {
-            maximumAge : 0,
-            timeout : 5000,
-            enableHighAccuracy : false
-        };
-        //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
-        //Clear the current location while we wait for a reading
-        lc.innerHTML = "Reading location...";
+try {
 
-    } else {
-        alert("Please wait,\nPhoneGap is not ready.");
-    }
+    //alert("getLocation3");
+
+    var locOptions = {
+        maximumAge: 100,
+        timeout: 100,
+        enableHighAccuracy: true
+    };
+
+    //get the current location
+    wathID = navigator.geolocation.watchPosition(onLocationSuccess, onLocationError, locOptions);
+    //Clear the current location while we wait for a reading
+    document.getElementById("locationInfo").innerHTML = "Reading location...";
 }
-function getLocation1() {
-    alert("getLocation1");
-    if(pgr == true) {
-        var locOptions = {
-            maximumAge : 0,
-            timeout : 5000,
-            enableHighAccuracy : true
-        };
-        //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess1, onLocationError1, locOptions);
-        //Clear the current location while we wait for a reading
-        lc.innerHTML = "Reading location...";
-
-    } else {
-        alert("Please wait,\nPhoneGap is not ready.");
-    }
-}
-function getLocation2() {
-    alert("getLocation2");
-    if(pgr == true) {
-        var locOptions = {
-            maximumAge : Infinity,
-            timeout : 5000,
-            enableHighAccuracy : false
-        };
-        //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess2, onLocationError2, locOptions);
-        //Clear the current location while we wait for a reading
-        lc.innerHTML = "Reading location...";
-
-    } else {
-        alert("Please wait,\nPhoneGap is not ready.");
-    }
-}
-function getLocation3() {
-    alert("getLocation3");
-    if(pgr == true) {
-        var locOptions = {
-            maximumAge : Infinity,
-            timeout : 5000,
-            enableHighAccuracy : true
-        };
-        //get the current location
-        navigator.geolocation.getCurrentPosition(onLocationSuccess3, onLocationError3, locOptions);
-        //Clear the current location while we wait for a reading
-        lc.innerHTML = "Reading location...";
-
-    } else {
-        alert("Please wait,\nPhoneGap is not ready.");
-    }
-}
-function getLocation4() {
-    alert("getwatchPosition4");
-    if(pgr == true) {
-        var locOptions = {
-            //maximumAge : Infinity,
-            //timeout : 5000,
-            enableHighAccuracy : true
-        };
-        //get the current location
-        navigator.geolocation.watchPosition(onLocationSuccess4, onLocationError4,locOptions);
-        //Clear the current location while we wait for a reading
-        lc.innerHTML = "Reading location...";
-
-    } else {
-        alert("Please wait,\nPhoneGap is not ready.");
+    catch (ex){
+        alert(ex.message);
     }
 }
 
 function onLocationSuccess(loc) {
-    alert("onLocationSuccess");
+    try{
+
+    //alert("onLocationSuccess");
     //We received something from the API, so first get the
     // timestamp in a date object so we can work with it
     var d = new Date(loc.timestamp);
     //Then replace the page's content with the current
     // location retrieved from the API
-    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
-}
-function onLocationSuccess1(loc) {
-    alert("onLocationSuccess1");
-    //We received something from the API, so first get the
-    // timestamp in a date object so we can work with it
-    var d = new Date(loc.timestamp);
-    //Then replace the page's content with the current
-    // location retrieved from the API
-    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
-}
-function onLocationSuccess2(loc) {
-    alert("onLocationSuccess2");
-    //We received something from the API, so first get the
-    // timestamp in a date object so we can work with it
-    var d = new Date(loc.timestamp);
-    //Then replace the page's content with the current
-    // location retrieved from the API
-    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
-}
-function onLocationSuccess3(loc) {
-    alert("onLocationSuccess3");
-    //We received something from the API, so first get the
-    // timestamp in a date object so we can work with it
-    var d = new Date(loc.timestamp);
-    //Then replace the page's content with the current
-    // location retrieved from the API
-    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
-}
-function onLocationSuccess4(loc) {
-    alert("onLocationSuccess4");
-    //We received something from the API, so first get the
-    // timestamp in a date object so we can work with it
-    var d = new Date(loc.timestamp);
-    //Then replace the page's content with the current
-    // location retrieved from the API
-    lc.innerHTML = '<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+        document.getElementById("locationInfoAnt").innerHTML = document.getElementById("locationInfo").innerHTML;
+
+        document.getElementById("locationInfo").innerHTML='<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+
+    var posAlta = new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude);
+    var mapOptions = {
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        accuracy: 5,
+        enabledHighAccuracy: true,
+        overviewMapControl: false,
+        panControl: false,
+        rotateControl: false,
+        scaleControl: false,
+        zoomControl: false,
+        streetViewControl: false,
+        center: posAlta,
+        maximumAge: 0//,timeout:1000
+    };
+    mapAlta = new google.maps.Map(document.getElementById('divMapa'), mapOptions);
+
+    var marcador = new google.maps.Marker({
+        position: posAlta,
+        map: mapAlta
+    });
+
+    }
+    catch(ex){
+        alert(ex.message);
+    }
 }
 
 function onLocationError(e) {
     alert("onLocationError error: #" + e.code + "\n" + e.message);
-}
 
-function onLocationError1(e) {
-    alert("onLocationError1 error: #" + e.code + "\n" + e.message);
-}
-function onLocationError2(e) {
-    alert("onLocationError2 error: #" + e.code + "\n" + e.message);
-}
-function onLocationError3(e) {
-    alert("onLocationError3 error: #" + e.code + "\n" + e.message);
-}
-function onLocationError4(e) {
-    alert("onLocationError4 error: #" + e.code + "\n" + e.message);
 }
 
 function callSuccess(data) {
