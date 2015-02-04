@@ -18,8 +18,8 @@ try {
     //alert("getLocation3");
 
     var locOptions = {
-        maximumAge: 100,
-        timeout: 1000,
+        maximumAge: 0,
+        timeout: 100,
         enableHighAccuracy: true
     };
 
