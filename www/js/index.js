@@ -44,11 +44,11 @@ function onLocationSuccess(loc) {
     // location retrieved from the API
         document.getElementById("locationInfoAnt").innerHTML = document.getElementById("locationInfo").innerHTML;
 
-        document.getElementById("locationInfo").innerHTML='<b>Current Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
+        document.getElementById("locationInfo").innerHTML='<b>Location</b><hr /><b>Latitude</b>: ' + loc.coords.latitude + '<br /><b>Longitude</b>: ' + loc.coords.longitude + '<br /><b>Altitude</b>: ' + loc.coords.altitude + '<br /><b>Accuracy</b>: ' + loc.coords.accuracy + '<br /><b>Altitude Accuracy</b>: ' + loc.coords.altitudeAccuracy + '<br /><b>Heading</b>: ' + loc.coords.heading + '<br /><b>Speed</b>: ' + loc.coords.speed + '<br /><b>Timestamp</b>: ' + d.toLocaleString();
 
     var posAlta = new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude);
     var mapOptions = {
-        zoom: 18,
+        zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
         accuracy: 5,
