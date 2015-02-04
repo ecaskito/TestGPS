@@ -19,7 +19,7 @@ try {
 
     var locOptions = {
         maximumAge: 100,
-        timeout: 1000,
+        timeout: 100,
         enableHighAccuracy: true
     };
 
@@ -48,7 +48,7 @@ function onLocationSuccess(loc) {
 
     var posAlta = new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude);
     var mapOptions = {
-        zoom: 14,
+        zoom: 20,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
         accuracy: 5,
@@ -76,8 +76,8 @@ function onLocationSuccess(loc) {
 }
 
 function onLocationError(e) {
-    alert("onLocationError error: #" + e.code + "\n" + e.message);
-
+    if (e.code==1)
+    {alert("onLocationError error: #" + e.code + "\n" + e.message);}
 }
 
 function callSuccess(data) {
