@@ -12,7 +12,7 @@ function deviceReady() {
     }
 }
 
-function getLocation() {
+function getLocation(activo) {
 try {
 
     //alert("getLocation3");
@@ -20,7 +20,7 @@ try {
     var locOptions = {
         maximumAge: 0,
         timeout: 100,
-        enableHighAccuracy: true
+        enableHighAccuracy: activo
     };
     //get the current location
     wathID = navigator.geolocation.watchPosition(onLocationSuccess, onLocationError, locOptions);
@@ -295,7 +295,7 @@ function VerMapa(loc){
 
 function ObtenerPosicion(activo){
     var posOptions={
-        maximumAge:1500,
+        maximumAge:100,
         timeout:20000,
         enableHighAccuracy:activo
     };
@@ -307,16 +307,16 @@ function posicion_error(error)
 {
     switch(error.code)
     {
-        case 1: alert("latitud: "+ position.coords.latitude);
+        case 1: alert(error.code+"-"+ error.message+" latitud: "+ position.coords.latitude);
             break;
 
-        case 2: alert("No podemos encontrar localizaión verifica que la tienes activada en tu dispositivo");
+        case 2: alert(error.code+"-"+ error.message+" No podemos encontrar localizaión verifica que la tienes activada en tu dispositivo");
             break;
 
-        case 3: alert("Tiempo de espera agotado para encontrar tu localización vuelve a entrar en la app");
+        case 3: alert(error.code+"-"+ error.message+" Tiempo de espera agotado para encontrar tu localización vuelve a entrar en la app");
             break;
 
-        default: alert("No podemos detectar tu localización, comprueba que tienes el GPS activado en tu dispositivo");
+        default: alert(error.code+"-"+ error.message+" No podemos detectar tu localización, comprueba que tienes el GPS activado en tu dispositivo");
             break;
     }
 }
