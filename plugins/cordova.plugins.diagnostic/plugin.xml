@@ -29,7 +29,7 @@
     <platform name="android">
         <config-file target="config.xml" parent="/*">
             <feature name="Diagnostic" >
-                <param name="android-package" value="com.collectme.cordova.diagnostic.Diagnostic"/>
+                <param name="android-package" value="cordova.plugins.diagnostic"/>
             </feature>
         </config-file>
 
@@ -39,7 +39,7 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
         </config-file>
 
-        <source-file src="src/android/Diagnostic.java" target-dir="src/com/collectme/cordova/diagnostic" />
+        <source-file src="src/android/Diagnostic.java" target-dir="src/android" />
 
     </platform>
 </plugin>
