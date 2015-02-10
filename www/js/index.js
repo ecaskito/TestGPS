@@ -94,19 +94,19 @@ function callFailure(data) {
 
 function test(){
     try{
-       Diagnostic = cordova.require('cordova/plugin/Diagnostic');
+       DiagnostiC = cordova.require('cordova/plugin/diagnostic');
     }
     catch (ex){
         alert("test error 1: "+ex.message);
     }
     try{
-        Diagnostic.prototype.isLocationEnabled(callSuccess,callFailure)
+        DiagnostiC.prototype.isLocationEnabled(callSuccess,callFailure)
     }
     catch (ex){
         alert("test error 2: "+ex.message);
     }
     try{
-        Diagnostic.isLocationEnabled(callSuccess,callFailure)
+        DiagnostiC.isLocationEnabled(callSuccess,callFailure)
     }
     catch (ex){
         alert("test error 3: "+ex.message);

@@ -5,7 +5,7 @@
  *  
 **/
 
-cordova.define('cordova/plugin/Diagnostic', function(require, exports, module) {
+cordova.define('cordova/plugin/diagnostic', function(require, exports, module) {
 
 	var Diagnostic = function () {
 	};
@@ -105,13 +105,20 @@ cordova.define('cordova/plugin/Diagnostic', function(require, exports, module) {
 			[]);
 	};
 
-	var Diagnostic = new Diagnostic();
-	module.exports = Diagnostic;
+	var DiagnostiC = new Diagnostic();
+	module.exports = DiagnostiC;
 
-cordova.addConstructor(function() {
-	if(!window.plugins)
-		window.plugins = {};
-	window.plugins.diagnostic = new Diagnostic();
+//cordova.addConstructor(function() {
+//	if(!window.plugins)
+//		window.plugins = {};
+//	window.plugins.diagnostic = new Diagnostic();
+//});
+
 });
 
-});
+if(!window.plugins) {
+	window.plugins = {};
+}
+if (!window.plugins.telephoneNumber) {
+	window.plugins.telephoneNumber = cordova.require("cordova/plugin/diagnostic");
+}
