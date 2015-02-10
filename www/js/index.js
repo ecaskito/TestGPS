@@ -307,13 +307,13 @@ function posicion_error(error)
 {
     switch(error.code)
     {
-        case error.PERMISSION_DENIED: alert("latitud: "+ position.coords.latitude);
+        case 1: alert("latitud: "+ position.coords.latitude);
             break;
 
-        case error.POSITION_UNAVAILABLE: alert("No podemos encontrar localizaión verifica que la tienes activada en tu dispositivo");
+        case 2: alert("No podemos encontrar localizaión verifica que la tienes activada en tu dispositivo");
             break;
 
-        case error.TIMEOUT: alert("Tiempo de espera agotado para encontrar tu localización vuelve a entrar en la app");
+        case 3: alert("Tiempo de espera agotado para encontrar tu localización vuelve a entrar en la app");
             break;
 
         default: alert("No podemos detectar tu localización, comprueba que tienes el GPS activado en tu dispositivo");
