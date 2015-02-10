@@ -119,6 +119,6 @@ cordova.define('cordova/plugin/diagnostic', function(require, exports, module) {
 if(!window.plugins) {
 	window.plugins = {};
 }
-if (!window.plugins.telephoneNumber) {
-	window.plugins.telephoneNumber = cordova.require("cordova/plugin/diagnostic");
+if (!window.plugins.diagnostic) {
+	window.plugins.diagnostic = cordova.require("cordova/plugin/diagnostic");
 }
