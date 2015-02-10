@@ -22,7 +22,6 @@ try {
         timeout: 100,
         enableHighAccuracy: true
     };
-
     //get the current location
     wathID = navigator.geolocation.watchPosition(onLocationSuccess, onLocationError, locOptions);
     //Clear the current location while we wait for a reading
@@ -260,4 +259,74 @@ function ObtenerTelefonoError(error)
     catch(ex) {
         alert("ObtenerTelefonoError error: " +ex.message);
     }
+}
+
+function VerMapa(loc){
+    try {
+
+        var posAlta = new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude);
+        var mapOptions = {
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true,
+            accuracy: 5,
+            enabledHighAccuracy: true,
+            overviewMapControl: false,
+            panControl: false,
+            rotateControl: false,
+            scaleControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            center: posAlta,
+            maximumAge: 0//,timeout:1000
+        };
+        mapAlta = new google.maps.Map(document.getElementById('divMapa'), mapOptions);
+
+        var marcador = new google.maps.Marker({
+            position: posAlta,
+            map: mapAlta
+        });
+
+    }
+    catch(ex){
+        alert("VerMapa "+ex.message);
+    }
+}
+
+function ObtenerPosicion(activo){
+    var posOptions={
+        maximumAge:1500,
+        timeout:20000,
+        enableHighAccuracy:activo
+    };
+
+    navigator.geolocation.getCurrentPosition(posicion_ok, posicion_error, posOptions);
+}
+
+function posicion_error(error)
+{
+    switch(error.code)
+    {
+        case error.PERMISSION_DENIED: alert("latitud: "+ position.coords.latitude);
+            break;
+
+        case error.POSITION_UNAVAILABLE: alert("No podemos encontrar localizaión verifica que la tienes activada en tu dispositivo");
+            break;
+
+        case error.TIMEOUT: alert("Tiempo de espera agotado para encontrar tu localización vuelve a entrar en la app");
+            break;
+
+        default: alert("No podemos detectar tu localización, comprueba que tienes el GPS activado en tu dispositivo");
+            break;
+    }
+}
+
+function posicion_ok(position) {
+    if (position.coords.latitude != null) {
+        VerMapa(position);
+    }
+    else{
+        alert("No ha devuelto posición");
+    }
+
 }
